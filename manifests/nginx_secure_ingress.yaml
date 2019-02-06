@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-secure-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - foobar.com
+    # This assumes tls-secret exists and the SSL
+    # certificate contains a CN for foobar.com
+    secretName: foobar-secret
+  - hosts:
+    - inside.foobar.com
+    # This assumes tls-secret exists and the SSL
+    # certificate contains a CN for inside.foobar.com
+    secretName: inside-foobar-secret
+  - hosts:
+    - bizzbuzz.com
+    # This assumes tls-secret exists and the SSL
+    # certificate contains a CN for bizzbuzz.com
+    secretName: bizzbuzz-secret
+  rules:
+  - host: foobar.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+  - host: foobar.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+  - host: bizzbuzz.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000

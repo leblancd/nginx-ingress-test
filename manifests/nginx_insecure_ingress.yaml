@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-insecure-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
