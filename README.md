@@ -54,6 +54,10 @@ kubectl create -f manifests
 TODO: Add confirmation/verification commands here.
 
 # Add /etc/hosts Entries for Supported Hostnames
+
+TODO: Add instrux to add this.
+
+# Testing Multi-TLS Access
 Do 'kubectl get ing' to get external IP address for the ingress controller.
 
 Using the IP address obtained to do a curl:
