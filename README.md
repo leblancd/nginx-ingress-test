@@ -7,16 +7,16 @@ can try instantiating a cluster with minikube and installing the metallb
 loadbalancer.
 
 #### Minikube References:
-https://kubernetes.io/docs/tasks/tools/install-minikube/
-https://jason.cwik.org/2018/12/minikube-metallb.html
-https://jason.cwik.org/2019/01/metallb-on-loopback.html
+https://kubernetes.io/docs/tasks/tools/install-minikube/  
+https://jason.cwik.org/2018/12/minikube-metallb.html   
+https://jason.cwik.org/2019/01/metallb-on-loopback.html  
 
 #### NGINX Ingress Controller References:
-https://github.com/kubernetes/ingress-nginx
-https://kubernetes.github.io/ingress-nginx/
-https://kubernetes.github.io/ingress-nginx/deploy/
-https://kubernetes.github.io/ingress-nginx/deploy/baremetal/
-https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/multi-tls
+https://github.com/kubernetes/ingress-nginx  
+https://kubernetes.github.io/ingress-nginx/  
+https://kubernetes.github.io/ingress-nginx/deploy/  
+https://kubernetes.github.io/ingress-nginx/deploy/baremetal/  
+https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/multi-tls  
 
 
 # Installing NGINX Ingress Controller and httpbin application
