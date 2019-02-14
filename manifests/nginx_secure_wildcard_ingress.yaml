@@ -1,0 +1,78 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-secure-wildcard-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+secret
+  - hosts:
+    - '*.foobar.com'
+    secretName: star-foobar-secret
+  - hosts:
+    - inside.foobar.com
+    secretName: inside-foobar-secret
+  - hosts:
+    - bizzbuzz.com
+    secretName: bizzbuzz-secret
+  rules:
+  - host: foobar.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+  - host: blah.foobar.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+  - host: foobar.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+  - host: bizzbuzz.com
+    http:
+      paths:
+      - path: /status/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /html
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
